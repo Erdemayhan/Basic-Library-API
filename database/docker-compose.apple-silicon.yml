@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  lib-api-db:
+    container_name: lib-api-mysql-db
+    image: jamielsharief/mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: "lib_api_db"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - vol-lib-api-db:/var/lib/mysql
+volumes:
+  vol-lib-api-db:
